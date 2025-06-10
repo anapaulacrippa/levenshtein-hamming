@@ -1,5 +1,6 @@
 #include "pocketpy.h"
 #include "levenshtein.h"
+//#include <stdio.h>
 
 bool py_levenshtein(int argc, py_Ref argv) {
     PY_CHECK_ARGC(2);
@@ -19,13 +20,15 @@ int main() {
 
   py_GlobalRef __main__ = py_getmodule("__main__");
 
-  py_bindfunc(__main__, "levenshtein", py_levenshtein);
+  py_bindfunc(__main__, "levenshtein.c", py_levenshtein);
 
-  bool ok = py_exec("", "main.py", EXEC_MODE, NULL);
+  bool ok = py_exec("", "scripts.py", EXEC_MODE, NULL);
   if (!ok) {
     py_printexc();
+//    goto finalize;
   }
 
+//finalize:  
   py_finalize();
   return 0;
 }

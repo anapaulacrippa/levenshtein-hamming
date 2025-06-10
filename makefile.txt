@@ -13,10 +13,10 @@ main: main.o pocketpy.o levenshtein.o
 main.o: main.c
 	gcc -Wall -c main.c
 
-pocketpy.o: pocketpy.c pocketpy.h
+pocketpy.o: pocketpy.c include/pocketpy.h
 	gcc -Wall -c pocketpy.c
 
-levenshtein.o: levenshtein.c levenshtein.h
+levenshtein.o: levenshtein.c include/levenshtein.h
 	gcc -Wall -c levenshtein.c
 
 # executação do programa
