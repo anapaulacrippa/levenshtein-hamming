@@ -1,11 +1,11 @@
-#include "pocketpy.h"
-#include "levenshtein.h"
-//#include <stdio.h>
+#include "include/pocketpy.h"
+#include "include/levenshtein.h"
+#include <stdio.h>
 
 bool py_levenshtein(int argc, py_Ref argv) {
     PY_CHECK_ARGC(2);
-    PY_CHECK_ARG_TYPE(0, tp_int);
-    PY_CHECK_ARG_TYPE(1, tp_int);
+    PY_CHECK_ARG_TYPE(0, tp_str);
+    PY_CHECK_ARG_TYPE(1, tp_str);
 
     const char *_s1 = py_tostr(py_arg(0));
     const char *_s2 = py_tostr(py_arg(1));
@@ -16,19 +16,23 @@ bool py_levenshtein(int argc, py_Ref argv) {
 }
 
 int main() {
-  py_initialize();
+    char input[2000];
+    FILE *ptr_arq = fopen("script.py", "r");
+    size_t n = fread(input, 1, 1000, ptr_arq);
+    input[n] = '\0';
+    fclose(ptr_arq);
 
-  py_GlobalRef __main__ = py_getmodule("__main__");
+    py_initialize();
 
-  py_bindfunc(__main__, "levenshtein.c", py_levenshtein);
+    py_GlobalRef main_module = py_getmodule("__main__");
 
-  bool ok = py_exec("", "scripts.py", EXEC_MODE, NULL);
-  if (!ok) {
-    py_printexc();
-//    goto finalize;
+    py_bindfunc(main_module, "levenshtein", py_levenshtein);
+
+    bool ok = py_exec(input, "", EXEC_MODE, NULL);
+    if (!ok) {
+      py_printexc();
   }
-
-//finalize:  
-  py_finalize();
-  return 0;
+ 
+    py_finalize();
+    return 0;
 }

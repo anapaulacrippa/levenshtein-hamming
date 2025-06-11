@@ -4,7 +4,7 @@
  *  https://github.com/pocketpy/pocketpy
  */
  
-#include "pocketpy.h"
+#include "include/pocketpy.h"
 // interpreter/modules.h
 
 
