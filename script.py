@@ -1,10 +1,18 @@
 pairs = [
     ("bola", "cola"),
+    ("string", "strong"),
     ("noite", "foice"),
-    ("ana", "banana"),
+    ("cabana", "banana"),
+    ("teclado", "telhado"),
     ("hardware", "software")
 ]
 
+print("\n--- Distancia de Levenshtein ---")
 for s1, s2 in pairs:
     distance = levenshtein(s1, s2)
-    print(f"Distancia de Levenshtein entre '{s1}' e '{s2}': {distance}")
+    print(f"- '{s1}' e '{s2}': {distance}")
+
+print("\n--- Distancia de Hamming ---")
+for s1, s2 in pairs:
+    distance = hamming(s1, s2)
+    print(f"- '{s1}' e '{s2}': {distance}")

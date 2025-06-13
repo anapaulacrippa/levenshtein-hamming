@@ -6,8 +6,8 @@
 all: main
 
 # construição o executável
-main: main.o pocketpy.o levenshtein.o
-	gcc main.o pocketpy.o levenshtein.o -o main -static
+main: main.o pocketpy.o levenshtein.o hamming.o
+	gcc main.o pocketpy.o levenshtein.o hamming.o -lm -o main -static
 
 # compilação dos arquivos .c individualmente
 main.o: main.c
@@ -18,6 +18,9 @@ pocketpy.o: pocketpy.c include/pocketpy.h
 
 levenshtein.o: levenshtein.c include/levenshtein.h
 	gcc -Wall -c levenshtein.c
+
+hamming.o: hamming.c include/hamming.h
+	gcc -Wall -c hamming.c
 
 # executação do programa
 run: main
