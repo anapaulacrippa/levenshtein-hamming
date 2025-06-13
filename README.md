@@ -1,4 +1,4 @@
-# Projeto de Integração C, Python e Bibliotecas Externas: Levenshtein e Hamming
+![image](https://github.com/user-attachments/assets/9375499c-2c32-4cce-8f1c-bda39de6f504)# Projeto de Integração C, Python e Bibliotecas Externas: Levenshtein e Hamming
 
 Projeto prático desenvolvido para a disciplina de **Programação para Interfaceamento de Hardware e Software** da Universidade Estadual de Maringá, ministrada pelo professor Marcelo de Gomensoro Malheiros.
 
@@ -64,9 +64,9 @@ Ver arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ### Comandos disponíveis
 
-Antes de executar qualquer uma das opções de comando:
-> `cd scr`
+Antes de executar qualquer uma das opções de comando, utilize o comando `cd scr` para entrar no diretório correto.
 
+#### Opções:
 > `make`  
 - Compila todos os arquivos e gera o executável `main`.
     
