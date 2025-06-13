@@ -2,6 +2,8 @@
 
 Projeto prático desenvolvido para a disciplina de **Programação para Interfaceamento de Hardware e Software** da Universidade Estadual de Maringá, ministrada pelo professor Marcelo de Gomensoro Malheiros.
 
+**Aluna**: Ana Paula Loureiro Crippa | **RA**: 137304
+
 ## 1. Objetivos
 
 Esse projeto tem como principal objetivo demonstrar a integração entre:
@@ -25,16 +27,17 @@ Esse projeto tem como principal objetivo demonstrar a integração entre:
 ## 3. Estrutura do projeto
 
 ```
-├── include/
-│ ├── hamming.h
-│ └── levenshtein.h
-│ └── pocketpy.h
-├── hamming.c
-├── levenshtein.c
-├── main.c
-├── pocketpy.c
-├── script.py
-├── Makefile
+├── src/
+| ├──  hamming.c
+| ├──  levenshtein.c
+| ├──  main.c
+| ├──  pocketpy.c
+| ├──  script.py
+| └──  Makefile
+├──── include/
+│   ├── hamming.h
+│   ├── levenshtein.h
+│   └── pocketpy.h
 ├── LICENSE
 └── README.md
 ```
@@ -44,7 +47,7 @@ Esse projeto tem como principal objetivo demonstrar a integração entre:
 
 - **PocketPy** interpretador Python embutido. Disponível em: [https://github.com/pocketpy/pocketpy](https://github.com/pocketpy/pocketpy)
 
-- **Levenshtein (por Titus Wormer)**: algoritmo de cálculo da distância entre strings (adaptado para integração). Disponível em: [https://github.com/wooorm/levenshtein.c] (https://github.com/wooorm/levenshtein.c)
+- **Levenshtein (por Titus Wormer)**: algoritmo de cálculo da distância entre strings (adaptado para integração). Disponível em: [https://github.com/wooorm/levenshtein.c](https://github.com/wooorm/levenshtein.c)
 
 ## 5. Licenciamento
 
@@ -62,14 +65,46 @@ Ver arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ### Comandos disponíveis
 
-- `make`  
-  Compila todos os arquivos e gera o executável `main`.
+> `make`  
+- Compila todos os arquivos e gera o executável `main`.
+    
+    #### Saída esperada:
+  ```
+    gcc -Wall -c main.c
+    gcc -Wall -c pocketpy.c
+    gcc -Wall -c levenshtein.c
+    gcc -Wall -c hamming.c
+    gcc main.o pocketpy.o levenshtein.o hamming.o -lm -o main -static
+  ```
 
-- `make run`  
-  Executa o programa principal, que interpreta o script Python (`script.py`) e exibe os resultados das distâncias.
+> `make run`  
+- Executa o programa principal, que interpreta o script Python (`script.py`) e exibe os resultados das distâncias.
 
-- `make clean`  
-  Remove arquivos objetos (`.o`) e o executável `main`.
+    #### Saída esperada:
+  ```
+    ./main
 
-### Exemplo de saída esperada:
+    --- Distancia de Levenshtein ---
+    - 'bola' e 'cola': 1
+    - 'string' e 'strong': 1
+    - 'noite' e 'foice': 2
+    - 'cabana' e 'banana': 2
+    - 'teclado' e 'telhado': 2
+    - 'hardware' e 'software': 4
 
+    --- Distancia de Hamming ---
+    - 'bola' e 'cola': 1
+    - 'string' e 'strong': 1
+    - 'noite' e 'foice': 2
+    - 'cabana' e 'banana': 2
+    - 'teclado' e 'telhado': 2
+    - 'hardware' e 'software': 4
+  ```
+
+> `make clean`  
+- Remove arquivos objetos (`.o`) e o executável `main`.
+    
+    #### Saída esperada:
+    ```
+    rm -f main *.o
+    ```
