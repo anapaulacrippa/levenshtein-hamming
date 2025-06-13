@@ -9,7 +9,7 @@ int hamming(const char *str1, const char *str2) {
 
     if (len1 != len2) {
         printf("Erro: as strings devem ter o mesmo tamanho.\n");
-        return -1; // erro
+        return -1;
     }
 
     for (int i = 0; i < len1; i++) {

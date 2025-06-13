@@ -4,35 +4,72 @@ Projeto prático desenvolvido para a disciplina de **Programação para Interfac
 
 ## 1. Objetivos
 
-Demonstrar integração entre:
+Esse projeto tem como principal objetivo demonstrar a integração entre:
 
-Biblioteca externa em C (Levenshtein)
+- Uma biblioteca externa em C;
 
-Aplicação em C com interpretador embutido (PocketPy)
+- Uma aplicação em C com interpretador embutido (PocketPy);
 
-Script em Python que chama a função C via PocketPy
+- Um script em Python que chama a função C, expostas via PocketPy;
 
 ## 2. Funcionalidades
 
-* Cálculo da distância de Levenshtein (entre duas strings)
+- Cálculo da distância de **Levenshtein** entre duas strings;
 
-* ... se der ... Cálculo da distância de Hamming (entre dois bytes, 0-255)
+- Cálculo da distância de **Hamming** entre duas strings de mesmo comprimento;
+
+- Chamada das funções C diretamente a partir de um script Python;
+
+- Exibição dos resultados no terminal com base em pares de testes pré-definidos;
 
 ## 3. Estrutura do projeto
 
 ```
-|
+├── include/
+│ ├── hamming.h
+│ └── levenshtein.h
+│ └── pocketpy.h
+├── hamming.c
+├── levenshtein.c
+├── main.c
+├── pocketpy.c
+├── script.py
+├── Makefile
+├── LICENSE
+└── README.md
 ```
+
 
 ## 4. Bibliotecas externas utilizadas
 
+- **PocketPy** interpretador Python embutido. Disponível em: [https://github.com/pocketpy/pocketpy](https://github.com/pocketpy/pocketpy)
+
+- **Levenshtein (por Titus Wormer)**: algoritmo de cálculo da distância entre strings (adaptado para integração). Disponível em: [https://github.com/wooorm/levenshtein.c] (https://github.com/wooorm/levenshtein.c)
+
 ## 5. Licenciamento
+
+Este projeto utiliza a licença MIT, conforme recomendação da biblioteca do algoritmo de Levenshtein e do interpretador PocketPy.
+
+Ver arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 6. Como compilar e executar
 
 ### Pré-requisitos
 
-* Compilador C (gcc)
-* 
+- Compilador C (recomenda-se `gcc`);
 
-#### Comandos
+- Ambiente que suporte Makefile.
+
+### Comandos disponíveis
+
+- `make`  
+  Compila todos os arquivos e gera o executável `main`.
+
+- `make run`  
+  Executa o programa principal, que interpreta o script Python (`script.py`) e exibe os resultados das distâncias.
+
+- `make clean`  
+  Remove arquivos objetos (`.o`) e o executável `main`.
+
+### Exemplo de saída esperada:
+
