@@ -42,7 +42,6 @@ Esse projeto tem como principal objetivo demonstrar a integração entre:
 └── README.md
 ```
 
-
 ## 4. Bibliotecas externas utilizadas
 
 - **PocketPy** interpretador Python embutido. Disponível em: [https://github.com/pocketpy/pocketpy](https://github.com/pocketpy/pocketpy)
@@ -64,6 +63,9 @@ Ver arquivo [LICENSE](LICENSE) para mais detalhes.
 - Ambiente que suporte Makefile.
 
 ### Comandos disponíveis
+
+Antes de executar qualquer uma das opções de comando:
+> `cd scr`
 
 > `make`  
 - Compila todos os arquivos e gera o executável `main`.
