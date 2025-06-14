@@ -66,7 +66,7 @@ Ver arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ### Comandos disponíveis
 
-Antes de executar qualquer uma das opções de comando, utilize o comando `cd scr` para entrar no diretório correto.
+Antes de executar qualquer uma das opções de comando, utilize o comando `cd src` para entrar no diretório correto.
 
 #### Opções:
 > `make`  
